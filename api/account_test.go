@@ -17,32 +17,6 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-// func TestCreateAccountAPI(t *testing.T) {
-// 	account := randomAccount()
-
-// 	testCases := []struct {
-// 		name          string
-// 		accountID     int64
-// 		buildStubs    func(store *mockdb.MockStore)
-// 		checkResponse func(t *testing.T, recorder *httptest.ResponseRecorder)
-// 	}{
-// 		{
-// 			name:      "OK",
-// 			accountID: account.ID,
-// 			buildStubs: func(store *mockdb.MockStore) {
-// 				store.EXPECT().
-// 					GetAccount(gomock.Any(), gomock.Eq(account.ID)).
-// 					Times(1).
-// 					Return(account, nil)
-// 			},
-// 			checkResponse: func(t *testing.T, recorder *httptest.ResponseRecorder) {
-// 				require.Equal(t, http.StatusOK, recorder.Code)
-// 				requireBodyMatchAccount(t, recorder.Body, account)
-// 			},
-// 		},
-// 	}
-// }
-
 func TestGetAccountAPI(t *testing.T) {
 	account := randomAccount()
 
@@ -104,6 +78,7 @@ func TestGetAccountAPI(t *testing.T) {
 				require.Equal(t, http.StatusBadRequest, recorder.Code)
 			},
 		},
+		// TODO: ad more test cases
 	}
 
 	for i := range testCases {
